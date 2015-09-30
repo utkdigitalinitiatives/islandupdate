@@ -1,15 +1,15 @@
-## islandupdate
+### islandupdate
 ----
-**_This may not work correctly with any other system than our own._**
+_This may not work correctly with any other system than our own._
 ----
-###  Local bash script to update islandora installation to HEAD.
+####  Local bash script to update islandora installation to HEAD.
 
 * does not update everything in drupal, just islandora related modules
 * does not update all libraries, just ones that are updated more frequently
 * some modules are commented out
 * does not update any other applications or dependencies, solr, tesseract, etc.
 
-### Process:
+#### Process:
 
 1. make dated backups of current modules and libraries
 2. Put drupal into maintenence mode
@@ -21,6 +21,6 @@
 6. enable modules
 7. cancel the drupal maintenence mode
 
-Note:  the making backups are writtent o a specific directory
+Note:  the backups are written to a specific directory
  and the erasing of modules does not check to see if it is backed-up, so
 careful testing is encouraged.
