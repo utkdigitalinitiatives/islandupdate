@@ -110,7 +110,7 @@ git clone git://github.com/Islandora/islandora
 
 #- islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
-git clone git://github.com/digital-initiatives/islandora_solution_pack_collection
+git clone git://github.com/Islandora/islandora_solution_pack_collection
 
 #- islandora_solution_pack_image
 rm -R islandora_solution_pack_image
@@ -247,6 +247,10 @@ git clone git://github.com/Islandora/islandora_checksum
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
+#- discoverygarden collection sort
+rm -R collection_sort
+git clone git://github.com/digital-initiatives/collection_sort
+
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
@@ -265,7 +269,7 @@ git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
 #- discoverygarden islandora_binary_object
 rm -R islandora_binary_object
-git clone git://github.com/Islandora-labs/islandora_binary_object
+git clone git://github.com/discoverygarden/islandora_binary_object
 
 echo "*** re-enabling modules"
 #    Enable modules
@@ -303,6 +307,7 @@ drush en -y islandora_premis
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker  
 drush en -y islandora_newspaper
+drush en -y collection_sort
 drush en -y islandora_collection_search
 drush en -y islandora_rest
 drush en -y islandora_paged_tei_seadragon
