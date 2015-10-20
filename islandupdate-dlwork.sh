@@ -1,8 +1,8 @@
 #!/bin/bash -x
 
-# this script is made to work on both 
-# the devel server and the live server
-
+# this script is for the 1st server to be updated to head
+# that update is tested before updating the other servers
+#
 TODAY=$(date +"%y-%m-%d")
 LIBBAK="/home/islandora/mod-lib-backups/lib-bak-$TODAY"
 MODBAK="/home/islandora/mod-lib-backups/mod-bak-$TODAY"
@@ -26,7 +26,8 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
-
+drush dis -y islandora_collection_search
+#drush dis -y collection_sort
 drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
@@ -107,13 +108,19 @@ cd $DRUPAL_HOME/sites/all/modules/
 rm -R islandora
 git clone git://github.com/Islandora/islandora
 
-#- islandora_solution_pack_collection
+#- ** local **  islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
-git clone git://github.com/Islandora/islandora_solution_pack_collection
+git clone git://github.com/digital-initiatives/islandora_solution_pack_collection
 
 #- islandora_solution_pack_image
 rm -R islandora_solution_pack_image
 git clone git://github.com/Islandora/islandora_solution_pack_image
+
+#- libraries
+#rm -R libraries
+#wget http://ftp.drupal.org/files/projects/libraries-7.x-2.2.zip
+#unzip libraries-7.x-2.2.zip
+#rm -f libraries-7.x-2.2.zip
 
 #- php_lib
 rm -R php_lib
@@ -246,6 +253,10 @@ git clone git://github.com/Islandora/islandora_checksum
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
+#- discoverygarden collection sort
+#rm -R collection_sort
+#git clone git://github.com/digital-initiatives/collection_sort
+
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
@@ -262,9 +273,9 @@ git clone git://github.com/discoverygarden/islandora_rest
 rm -R islandora_solution_pack_manuscript
 git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
-#- discoverygarden islandora_binary_object
+#- Islandora-Labs islandora_binary_object
 rm -R islandora_binary_object
-git clone git://github.com/discoverygarden/islandora_binary_object
+git clone git://github.com/Islandora-Labs/islandora_binary_object
 
 echo "*** re-enabling modules"
 #    Enable modules
@@ -304,6 +315,8 @@ drush en -y islandora_checksum
 drush en -y islandora_newspaper
 drush en -y islandora_collection_search
 drush en -y islandora_rest
+drush en -y islandora_audio
+drush en -y islandora_video
 drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
 drush en -y islandora_binary_object
