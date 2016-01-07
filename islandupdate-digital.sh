@@ -110,7 +110,7 @@ git clone git://github.com/Islandora/islandora
 
 #- islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
-git clone git://github.com/digital-initiatives/islandora_solution_pack_collection
+git clone git://github.com/utkdigitalinitiatives/islandora_solution_pack_collection
 
 #- islandora_solution_pack_image
 rm -R islandora_solution_pack_image
