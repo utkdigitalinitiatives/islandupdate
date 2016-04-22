@@ -26,8 +26,9 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
+drush dis -y islandora_usage_stats
+drush dis -y islandora_scg
 drush dis -y islandora_collection_search
-#drush dis -y collection_sort
 drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
@@ -42,6 +43,7 @@ drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper
 drush dis -y islandora_binary_object
 drush dis -y islandora_manuscript
+drush dis -y islandora_ead
 drush dis -y islandora_paged_tei_seadragon
 drush dis -y islandora_rest
 drush dis -y islandora_audio
@@ -116,11 +118,6 @@ git clone git://github.com/utkdigitalinitiatives/islandora_solution_pack_collect
 rm -R islandora_solution_pack_image
 git clone git://github.com/Islandora/islandora_solution_pack_image
 
-#- libraries
-#rm -R libraries
-#wget http://ftp.drupal.org/files/projects/libraries-7.x-2.2.zip
-#unzip libraries-7.x-2.2.zip
-#rm -f libraries-7.x-2.2.zip
 
 #- php_lib
 rm -R php_lib
@@ -242,8 +239,8 @@ rm -R islandora_checksum
 git clone git://github.com/Islandora/islandora_checksum
 
 ##- islandora_checksum_checker
-#rm -R islandora_checksum_checker
-#git clone git://github.com/Islandora/islandora_checksum_checker
+rm -R islandora_checksum_checker
+git clone git://github.com/Islandora/islandora_checksum_checker
 
 #- islandora_pathauto
 #rm -R islandora_pathauto
@@ -253,9 +250,6 @@ git clone git://github.com/Islandora/islandora_checksum
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
-#- discoverygarden collection sort
-#rm -R collection_sort
-#git clone git://github.com/digital-initiatives/collection_sort
 
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
@@ -273,9 +267,23 @@ git clone git://github.com/discoverygarden/islandora_rest
 rm -R islandora_solution_pack_manuscript
 git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
+#- drexel ead solution pack
+rm -R islandora_solution_pack_ead
+git clone git://github.com/DrexelUniversityLibraries/islandora_solution_pack_ead
+
+
 #- Islandora-Labs islandora_binary_object
 rm -R islandora_binary_object
 git clone git://github.com/Islandora-Labs/islandora_binary_object
+
+#- Islandora-mjordan islandora_scg
+rm -R islandora_scg
+git clone git://github.com/mjordan/islandora_scg
+
+#- Islandora islandora_usage_stats
+rm -R islandora_usage_stats
+git clone git://github.com/Islandora/islandora_usage_stats
+
 
 echo "*** re-enabling modules"
 #    Enable modules
@@ -319,8 +327,10 @@ drush en -y islandora_audio
 drush en -y islandora_video
 drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
+drush en -y islandora_ead
 drush en -y islandora_binary_object
-
+drush en -y islandora_scg
+drush en -y islandora_usage_stats
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
 
