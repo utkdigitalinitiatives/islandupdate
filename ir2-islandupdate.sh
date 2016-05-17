@@ -1,8 +1,10 @@
 #!/bin/bash -x
 
-# this script is for the 1st server to be updated to head
-# that update is tested before updating the other servers
+# this script is for the ir2 server to be updated to head
+# 
+# 2015-07-15 partially modified for the ir2 server
 #
+UPDATE_EXEC_DIR=`pwd`
 TODAY=$(date +"%y-%m-%d")
 LIBBAK="/home/islandora/mod-lib-backups/lib-bak-$TODAY"
 MODBAK="/home/islandora/mod-lib-backups/mod-bak-$TODAY"
@@ -26,9 +28,8 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
-drush dis -y islandora_usage_stats
-drush dis -y islandora_scg
 drush dis -y islandora_collection_search
+drush dis -y islandora_simple_workflow
 drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
@@ -43,7 +44,6 @@ drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper
 drush dis -y islandora_binary_object
 drush dis -y islandora_manuscript
-drush dis -y islandora_ead
 drush dis -y islandora_paged_tei_seadragon
 drush dis -y islandora_rest
 drush dis -y islandora_audio
@@ -64,6 +64,8 @@ drush dis -y islandora_xacml_api
 drush dis -y islandora_openseadragon
 drush dis -y islandora_fits
 drush dis -y islandora_oai
+drush dis -y islandora_populator
+drush dis -y islandora_scholar
 drush dis -y islandora_basic_image  
 drush dis -y islandora_basic_collection
 drush dis -y objective_forms
@@ -110,14 +112,13 @@ cd $DRUPAL_HOME/sites/all/modules/
 rm -R islandora
 git clone git://github.com/Islandora/islandora
 
-#- ** local **  islandora_solution_pack_collection
+#- **local ** islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
 git clone git://github.com/utkdigitalinitiatives/islandora_solution_pack_collection
 
 #- islandora_solution_pack_image
 rm -R islandora_solution_pack_image
 git clone git://github.com/Islandora/islandora_solution_pack_image
-
 
 #- php_lib
 rm -R php_lib
@@ -131,14 +132,29 @@ git clone git://github.com/Islandora/objective_forms
 rm -R islandora_xml_forms
 git clone git://github.com/Islandora/islandora_xml_forms
 
+#- islandora_populator
+rm -R islandora_populator
+git clone git://github.com/Islandora/islandora_populator
+
+#- islandora_scholar
+rm -R islandora_scholar
+git clone git://github.com/Islandora/islandora_scholar
+
 #- islandora_oai
 rm -R islandora_oai
 git clone git://github.com/Islandora/islandora_oai
 
+#- add the MODS v3.5 mods_to_dc_oai stylesheet
+mv islandora_oai/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/mods_to_dc_oai.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/
 
 #- islandora_batch
 rm -R islandora_batch
 git clone git://github.com/Islandora/islandora_batch
+
+#- add the MODS v3.5 mods_to_dc stylesheet
+mv islandora_batch/transforms/mods_to_dc.xsl islandora_batch/transforms/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_batch/transforms/
 
 #- islandora_fits
 rm -R islandora_fits
@@ -147,6 +163,10 @@ git clone git://github.com/Islandora/islandora_fits
 #- islandora_importer
 rm -R islandora_importer
 git clone git://github.com/Islandora/islandora_importer
+
+#- add the MODS v3.5 mods_to_dc stylesheet
+mv islandora_importer/xsl/mods_to_dc.xsl islandora_importer/xsl/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_importer/xsl/
 
 #- islandora_ocr
 rm -R islandora_ocr
@@ -239,8 +259,8 @@ rm -R islandora_checksum
 git clone git://github.com/Islandora/islandora_checksum
 
 ##- islandora_checksum_checker
-rm -R islandora_checksum_checker
-git clone git://github.com/Islandora/islandora_checksum_checker
+#rm -R islandora_checksum_checker
+#git clone git://github.com/Islandora/islandora_checksum_checker
 
 #- islandora_pathauto
 #rm -R islandora_pathauto
@@ -250,6 +270,9 @@ git clone git://github.com/Islandora/islandora_checksum_checker
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
+#- islandora_simple_workflow
+rm -R islandora_simple_workflow
+git clone git://github.com/Islandora/islandora_simple_workflow
 
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
@@ -267,23 +290,9 @@ git clone git://github.com/discoverygarden/islandora_rest
 rm -R islandora_solution_pack_manuscript
 git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
-#- drexel ead solution pack
-rm -R islandora_solution_pack_ead
-git clone git://github.com/DrexelUniversityLibraries/islandora_solution_pack_ead
-
-
 #- Islandora-Labs islandora_binary_object
 rm -R islandora_binary_object
 git clone git://github.com/Islandora-Labs/islandora_binary_object
-
-#- Islandora-mjordan islandora_scg
-rm -R islandora_scg
-git clone git://github.com/mjordan/islandora_scg
-
-#- Islandora islandora_usage_stats
-rm -R islandora_usage_stats
-git clone git://github.com/Islandora/islandora_usage_stats
-
 
 echo "*** re-enabling modules"
 #    Enable modules
@@ -295,6 +304,8 @@ drush en -y xml_forms
 drush en -y islandora_basic_collection
 drush en -y islandora_basic_image 
 drush en -y islandora_fits
+drush en -y islandora_populator
+drush en -y islandora_scholar
 drush en -y islandora_oai
 drush en -y islandora_ocr
 drush en -y islandora_openseadragon
@@ -315,26 +326,24 @@ drush en -y islandora_solr_metadata
 drush en -y islandora_bookmark
 drush en -y islandora_jwplayer
 drush en -y islandora_videojs
+drush en -y islandora_video
+drush en -y islandora_audio
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
 #drush en -y islandora_pathauto  
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker  
 drush en -y islandora_newspaper
+drush en -y islandora_simple_workflow
 drush en -y islandora_collection_search
 drush en -y islandora_rest
-drush en -y islandora_audio
-drush en -y islandora_video
 drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
-drush en -y islandora_ead
 drush en -y islandora_binary_object
-drush en -y islandora_scg
-drush en -y islandora_usage_stats
+
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
 
 echo "enable drupal..."
 drush vset --exact maintenance_mode 0
-
 
