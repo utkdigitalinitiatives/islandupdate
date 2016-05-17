@@ -143,6 +143,10 @@ cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc_oai.xsl islandora_
 rm -R islandora_batch
 git clone git://github.com/Islandora/islandora_batch
 
+#- add the MODS v3.5 mods_to_dc stylesheet
+mv islandora_batch/transforms/mods_to_dc.xsl islandora_batch/transforms/mods_to_dc.xsl.3.4
+cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc.xsl islandora_batch/transforms/
+
 #- islandora_fits
 rm -R islandora_fits
 git clone git://github.com/Islandora/islandora_fits
