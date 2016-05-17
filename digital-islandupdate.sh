@@ -3,6 +3,7 @@
 # this script is for the 1st server to be updated to head
 # that update is tested before updating the other servers
 #
+UPDATE_EXEC_DIR=`pwd`
 TODAY=$(date +"%y-%m-%d")
 LIBBAK="/home/islandora/mod-lib-backups/lib-bak-$TODAY"
 MODBAK="/home/islandora/mod-lib-backups/mod-bak-$TODAY"
@@ -14,7 +15,7 @@ cd $DRUPAL_HOME
 
 # do an archive dump?
 #drush ard
-
+/home/islandora/Scripts/islandupdate
 # set maintenance mode to lock drupal
 drush vset --exact maintenance_mode 1
 
@@ -134,7 +135,7 @@ git clone git://github.com/Islandora/islandora_oai
 
 #- add the MODS v3.5 mods_to_dc_oai stylesheet
 mv islandora_oai/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/mods_to_dc_oai.xsl.3.4
-cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/
 
 #- islandora_batch
 rm -R islandora_batch
@@ -142,7 +143,7 @@ git clone git://github.com/Islandora/islandora_batch
 
 #- add the MODS v3.5 mods_to_dc stylesheet
 mv islandora_batch/transforms/mods_to_dc.xsl islandora_batch/transforms/mods_to_dc.xsl.3.4
-cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc.xsl islandora_batch/transforms/
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_batch/transforms/
 
 #- islandora_fits
 rm -R islandora_fits
@@ -154,7 +155,7 @@ git clone git://github.com/Islandora/islandora_importer
 
 #- add the MODS v3.5 mods_to_dc stylesheet
 mv islandora_importer/xsl/mods_to_dc.xsl islandora_importer/xsl/mods_to_dc.xsl.3.4
-cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc.xsl islandora_importer/xsl/
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_importer/xsl/
 
 #- islandora_ocr
 rm -R islandora_ocr
