@@ -155,6 +155,10 @@ git clone git://github.com/Islandora/islandora_fits
 rm -R islandora_importer
 git clone git://github.com/Islandora/islandora_importer
 
+#- add the MODS v3.5 mods_to_dc stylesheet
+mv islandora_importer/xsl/mods_to_dc.xsl islandora_importer/xsl/mods_to_dc.xsl.3.4
+cp /home/islandora/Scripts/islandupdate/transforms/mods_to_dc.xsl islandora_importer/xsl/
+
 #- islandora_ocr
 rm -R islandora_ocr
 git clone git://github.com/Islandora/islandora_ocr
