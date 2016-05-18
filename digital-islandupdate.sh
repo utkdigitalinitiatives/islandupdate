@@ -287,6 +287,10 @@ git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 rm -R islandora_binary_object
 git clone git://github.com/discoverygarden/islandora_binary_object
 
+#- Islandora bagit
+rm -R islandora_bagit
+git clone git://github.com/Islandora/islandora_bagit
+
 echo "*** re-enabling modules"
 #    Enable modules
 
