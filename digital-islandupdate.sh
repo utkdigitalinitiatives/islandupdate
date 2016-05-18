@@ -331,6 +331,10 @@ drush en -y islandora_rest
 drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
 drush en -y islandora_binary_object
+drush en -y islandora_newspaper_batch
+drush en -y islandora_batch_derivative_trigger
+drush en -y islandora_datastream_exporter
+drush en -y islandora_datastream_replace
 
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
