@@ -27,6 +27,10 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
+drush dis -y islandora_batch_derivative_trigger
+drush dis -y islandora_datastream_exporter
+drush dis -y islandora_datastream_replace
+drush dis -y islandora_bagit
 drush dis -y islandora_usage_stats
 drush dis -y islandora_scg
 drush dis -y islandora_collection_search
@@ -52,6 +56,7 @@ drush dis -y islandora_video
 drush dis -y islandora_pdf
 drush dis -y zip_importer
 drush dis -y islandora_importer
+drush dis -y islandora_newspaper_batch
 drush dis -y islandora_book_batch
 drush dis -y islandora_batch
 drush dis -y islandora_book
@@ -262,6 +267,9 @@ git clone git://github.com/Islandora/islandora_checksum_checker
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
+#- islandora_newspaper_batch
+rm -R islandora_newspaper_batch
+git clone git://github.com/Islandora/islandora_newspaper_batch
 
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
@@ -296,6 +304,9 @@ git clone git://github.com/mjordan/islandora_scg
 rm -R islandora_usage_stats
 git clone git://github.com/Islandora/islandora_usage_stats
 
+#- Islandora bagit
+rm -R islandora_bagit
+git clone git://github.com/Islandora/islandora_bagit
 
 echo "*** re-enabling modules"
 #    Enable modules
@@ -313,7 +324,7 @@ drush en -y islandora_openseadragon
 drush en -y islandora_large_image
 drush en -y islandora_pdf
 drush en -y islandora_batch
-drush en -y islandora_importer
+drush en -y islandora_zip_importer
 drush en -y islandora_internet_archive_bookreader 
 drush en -y islandora_paged_content 
 drush en -y islandora_book
@@ -321,7 +332,7 @@ drush en -y islandora_book_batch
 drush en -y islandora_xacml_api
 drush en -y islandora_xacml_editor
 drush en -y islandora_compound_object 
-drush en -y islandora_solr_search
+drush en -y islandora_solr
 drush en -y islandora_solr_views
 drush en -y islandora_solr_metadata 
 drush en -y islandora_bookmark
@@ -343,6 +354,12 @@ drush en -y islandora_ead
 drush en -y islandora_binary_object
 drush en -y islandora_scg
 drush en -y islandora_usage_stats
+drush en -y islandora_newspaper_batch
+drush en -y islandora_batch_derivative_trigger
+drush en -y islandora_datastream_exporter
+drush en -y islandora_datastream_replace
+drush en -y islandora_bagit
+
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
 
