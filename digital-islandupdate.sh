@@ -263,6 +263,10 @@ git clone git://github.com/Islandora/islandora_checksum
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 
+#- islandora_newspaper_batch
+rm -R islandora_newspaper_batch
+git clone git://github.com/Islandora/islandora_newspaper_batch
+
 #- discoverygarden collection sort
 #rm -R collection_sort
 #git clone git://github.com/digital-initiatives/collection_sort
