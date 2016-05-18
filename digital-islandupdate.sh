@@ -27,6 +27,10 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
+drush dis -y islandora_batch_derivative_trigger
+drush dis -y islandora_datastream_exporter
+drush dis -y islandora_datastream_replace
+drush dis -y islandora_bagit
 drush dis -y islandora_collection_search
 #drush dis -y collection_sort
 drush dis -y islandora_solr_views
