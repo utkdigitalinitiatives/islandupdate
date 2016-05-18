@@ -255,7 +255,7 @@ git clone git://github.com/Islandora/islandora_premis
 rm -R islandora_checksum
 git clone git://github.com/Islandora/islandora_checksum
 
-##- islandora_checksum_checkerhttps://dlwork.lib.utk.edu/dev/admin/modules
+##- islandora_checksum_checker
 rm -R islandora_checksum_checker
 git clone git://github.com/Islandora/islandora_checksum_checker
 
@@ -300,7 +300,7 @@ git clone git://github.com/Islandora-Labs/islandora_binary_object
 rm -R islandora_scg
 git clone git://github.com/mjordan/islandora_scg
 
-#- Islandora islandora_usage_statshttps://dlwork.lib.utk.edu/dev/admin/modules
+#- Islandora islandora_usage_stats
 rm -R islandora_usage_stats
 git clone git://github.com/Islandora/islandora_usage_stats
 
