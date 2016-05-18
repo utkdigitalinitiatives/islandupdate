@@ -358,6 +358,8 @@ drush en -y islandora_newspaper_batch
 drush en -y islandora_batch_derivative_trigger
 drush en -y islandora_datastream_exporter
 drush en -y islandora_datastream_replace
+drush en -y islandora_bagit
+
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
 
