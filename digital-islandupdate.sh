@@ -44,6 +44,7 @@ drush dis -y islandora_bookmark
 drush dis -y islandora_jwplayer
 drush dis -y islandora_videojs
 drush dis -y islandora_pdfjs
+drush dis -y islandora_newspaper_batch
 drush dis -y islandora_newspaper
 drush dis -y islandora_binary_object
 drush dis -y islandora_manuscript
