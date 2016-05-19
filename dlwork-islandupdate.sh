@@ -70,7 +70,6 @@ drush dis -y islandora_xacml_api
 drush dis -y islandora_openseadragon
 drush dis -y islandora_fits
 drush dis -y islandora_oai
-drush dis -y islandora_batch_derivative_trigger
 drush dis -y islandora_basic_image
 drush dis -y islandora_basic_collection
 drush dis -y objective_forms
@@ -325,7 +324,6 @@ drush en -y xml_form_api, xml_form_builder, xml_form_elements, xml_schema_api
 drush en -y xml_forms
 drush en -y islandora_basic_collection
 drush en -y islandora_basic_image
-drush en -y islandora_batch_derivative_trigger
 drush en -y islandora_fits
 drush en -y islandora_oai
 drush en -y islandora_ocr
