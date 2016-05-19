@@ -69,7 +69,7 @@ drush dis -y islandora_xacml_api
 drush dis -y islandora_openseadragon
 drush dis -y islandora_fits
 drush dis -y islandora_oai
-drush dis -y islandora_basic_image  
+drush dis -y islandora_basic_image
 drush dis -y islandora_basic_collection
 drush dis -y objective_forms
 drush dis -y xml_forms
@@ -134,6 +134,14 @@ git clone git://github.com/Islandora/objective_forms
 #- islandora_xml_forms
 rm -R islandora_xml_forms
 git clone git://github.com/Islandora/islandora_xml_forms
+
+#- add the MODS v3.5 mods_to_dc stylesheet
+mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/
+
+#- islandora_batch_derivative_trigger
+rm -R islandora_batch_derivative_trigger
+git clone git://github.com/qadan/islandora_batch_derivative_trigger
 
 #- islandora_oai
 rm -R islandora_oai
@@ -309,7 +317,7 @@ drush en -y objective_forms
 drush en -y xml_form_api, xml_form_builder, xml_form_elements, xml_schema_api
 drush en -y xml_forms
 drush en -y islandora_basic_collection
-drush en -y islandora_basic_image 
+drush en -y islandora_basic_image
 drush en -y islandora_fits
 drush en -y islandora_oai
 drush en -y islandora_ocr
