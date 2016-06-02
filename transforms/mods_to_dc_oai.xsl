@@ -209,7 +209,7 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	<xsl:template match="mods:dateIssued | mods:dateCreated | mods:dateCaptured">
+	<xsl:template match="mods:dateIssued | mods:dateCreated | mods:dateCaptured | mods:dateOther[not(@*)]">
 		<dc:date>
 			<xsl:choose>
 				<xsl:when test="@point = 'start'">
