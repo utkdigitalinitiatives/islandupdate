@@ -22,6 +22,7 @@ _This may not work correctly with any other system until it is edited._
 
 1. Clone the repo to your server.
 2. Edit it to fit your local systems and requirements.
+3. Run the script as root (sudo -i)
 
 ## Process:
 
