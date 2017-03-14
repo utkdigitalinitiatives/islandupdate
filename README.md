@@ -41,8 +41,8 @@ Note:  the backups are written to a specific directory
 careful testing is encouraged.
 
 ## Maintainers
-1. [Paul Cummins](https://github.com/utkdigitalinitiatives/islandupdate)
-
+1. [Paul Cummins](https://github.com/pc37utn)
+2. [Bridger Dyson-Smith](https://github.com/CanOfBees)
 ## Development
 
 Pull requests are welcome, as are use cases and suggestions.
