@@ -15,7 +15,7 @@ cd $DRUPAL_HOME
 
 # do an archive dump?
 #drush ard
-/home/islandora/Scripts/islandupdate
+
 # set maintenance mode to lock drupal
 drush vset --exact maintenance_mode 1
 
