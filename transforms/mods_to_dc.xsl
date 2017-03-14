@@ -6,13 +6,13 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<!-- 
-    localizations   2016-05 bridger
-                    Dropped srw_dc namespace references
-                    Dropped mods:modsCollection test
+	localizations   2016-05 bridger
+					Dropped srw_dc namespace references
+					Dropped mods:modsCollection test
+					Added mods:dateOther[not(@*)]
 
-
-    Version 1.8		2015-03-05 tmee@loc.gov
-    				Typo mods:provence changed to mods:province
+  Version 1.8		2015-03-05 tmee@loc.gov
+					Typo mods:provence changed to mods:province
     
 	Version 1.7 	2015-01-30 ws
 					Changed dc:creator to dc:contributor if mods:name/mods:roleTerm != creator
@@ -209,7 +209,7 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	<xsl:template match="mods:dateIssued | mods:dateCreated | mods:dateCaptured">
+	<xsl:template match="mods:dateIssued | mods:dateCreated | mods:dateCaptured | mods:dateOther[not(@*)]">
 		<dc:date>
 			<xsl:choose>
 				<xsl:when test="@point = 'start'">

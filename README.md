@@ -27,7 +27,7 @@ _This may not work correctly with any other system until it is edited._
 ## Process:
 
 1. make dated backups of current modules and libraries
-2. Put drupal into maintenence mode
+2. put drupal into maintenence mode
 3. disables modules
 4. updates libraries
 5. with each module:
