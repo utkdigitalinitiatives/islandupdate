@@ -1,13 +1,20 @@
-### islandupdate
-----
-_This may not work correctly with any other system than our own._
-----
-####  Local bash script to update islandora installation to HEAD.
+# islandupdate
+
+## Introduction
+
+Local bash script to update islandora installation to HEAD. 
 
 * does not update everything in drupal, just islandora related modules
 * does not update all libraries, just ones that are updated more frequently
 * some modules are commented out
 * does not update any other applications or dependencies, solr, tesseract, etc.
+
+_This may not work correctly with any other system than our own._
+
+## Usage
+
+1. Clone the repo to your server.
+2. Edit it to fit your local systems and requirements.
 
 #### Process:
 
