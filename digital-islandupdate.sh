@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/usr/bin/env bash -x
 
 # this script is for the 1st server to be updated to head
 # that update is tested before updating the other servers
