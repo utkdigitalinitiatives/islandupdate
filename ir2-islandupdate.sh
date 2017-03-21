@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!usr/bin/env bash -x
 
 # this script is for the ir2 server to be updated to head
 # 
