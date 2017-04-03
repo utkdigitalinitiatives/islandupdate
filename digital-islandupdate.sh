@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/usr/bin/env bash -x
 
 # this script is for the 1st server to be updated to head
 # that update is tested before updating the other servers
@@ -27,13 +27,12 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
-drush dis -y islandora_batch_derivative_trigger
+#drush dis -y islandora_batch_derivative_trigger
 drush dis -y islandora_datastream_exporter
 drush dis -y islandora_datastream_replace
 drush dis -y islandora_bagit
 drush dis -y islandora_usage_stats
 drush dis -y islandora_collection_search
-#drush dis -y collection_sort
 drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
@@ -140,8 +139,8 @@ mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/bui
 cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/
 
 #- islandora_batch_derivative_trigger
-rm -R islandora_batch_derivative_trigger
-git clone git://github.com/qadan/islandora_batch_derivative_trigger
+#rm -R islandora_batch_derivative_trigger
+#git clone git://github.com/qadan/islandora_batch_derivative_trigger
 
 #- islandora_oai
 rm -R islandora_oai
@@ -277,10 +276,6 @@ git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 rm -R islandora_newspaper_batch
 git clone git://github.com/Islandora/islandora_newspaper_batch
 
-#- discoverygarden collection sort
-#rm -R collection_sort
-#git clone git://github.com/digital-initiatives/collection_sort
-
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
@@ -348,14 +343,13 @@ drush en -y islandora_premis
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker  
 drush en -y islandora_newspaper
-drush en -y collection_sort
 drush en -y islandora_collection_search
 drush en -y islandora_rest
 drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
 drush en -y islandora_binary_object
 drush en -y islandora_newspaper_batch
-drush en -y islandora_batch_derivative_trigger
+#drush en -y islandora_batch_derivative_trigger
 drush en -y islandora_datastream_exporter
 drush en -y islandora_datastream_replace
 drush en -y islandora_bagit
