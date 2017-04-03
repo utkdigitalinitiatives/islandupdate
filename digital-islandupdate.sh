@@ -27,7 +27,7 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
-drush dis -y islandora_batch_derivative_trigger
+#drush dis -y islandora_batch_derivative_trigger
 drush dis -y islandora_datastream_exporter
 drush dis -y islandora_datastream_replace
 drush dis -y islandora_bagit
@@ -139,8 +139,8 @@ mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/bui
 cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/
 
 #- islandora_batch_derivative_trigger
-rm -R islandora_batch_derivative_trigger
-git clone git://github.com/qadan/islandora_batch_derivative_trigger
+#rm -R islandora_batch_derivative_trigger
+#git clone git://github.com/qadan/islandora_batch_derivative_trigger
 
 #- islandora_oai
 rm -R islandora_oai
@@ -349,7 +349,7 @@ drush en -y islandora_paged_tei_seadragon
 drush en -y islandora_manuscript
 drush en -y islandora_binary_object
 drush en -y islandora_newspaper_batch
-drush en -y islandora_batch_derivative_trigger
+#drush en -y islandora_batch_derivative_trigger
 drush en -y islandora_datastream_exporter
 drush en -y islandora_datastream_replace
 drush en -y islandora_bagit
