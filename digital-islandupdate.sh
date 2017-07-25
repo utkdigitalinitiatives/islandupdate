@@ -110,6 +110,14 @@ echo "***** updating modules *****"
 
 cd $DRUPAL_HOME/sites/all/modules/
 
+#- islandora_datastream_exporter
+rm -R islandora_datastream_exporter
+git clone https://github.com/Islandora-Labs/islandora_datastream_exporter
+
+#- islandora_datastream_replace
+rm -R islandora_datastream_replace
+git clone https://github.com/utkdigitalinitiatives/islandora_datastream_replace
+
 #- islandora
 rm -R islandora
 git clone git://github.com/Islandora/islandora
