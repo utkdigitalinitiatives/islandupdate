@@ -60,6 +60,7 @@ drush dis -y islandora_newspaper_batch
 drush dis -y islandora_book_batch
 drush dis -y islandora_batch
 drush dis -y islandora_book
+drush dis -y islandora_transcript
 drush dis -y islandora_internet_archive_bookreader
 drush dis -y islandora_paged_content
 drush dis -y islandora_compound_object
@@ -111,6 +112,15 @@ echo "***** updating modules *****"
 #    Update modules
 
 cd $DRUPAL_HOME/sites/all/modules/
+
+#- islandora_datastream_exporter
+rm -R islandora_datastream_exporter
+git clone https://github.com/pc37utn/islandora_datastream_exporter
+
+#- islandora_datastream_replace
+rm -R islandora_datastream_replace
+git clone https://github.com/utkdigitalinitiatives/islandora_datastream_replace
+
 
 #- islandora
 rm -R islandora
@@ -198,6 +208,9 @@ git clone git://github.com/Islandora/islandora_internet_archive_bookreader
 rm -R islandora_solution_pack_book
 git clone git://github.com/Islandora/islandora_solution_pack_book
 
+#- islandora_transcript
+rm -R islandora_transcript
+git clone git://github.com/yorkulibraries/islandora_transcript
 
 #- islandora_xacml_editor
 rm -R islandora_xacml_editor
@@ -335,6 +348,7 @@ drush en -y islandora_zip_importer
 drush en -y islandora_internet_archive_bookreader 
 drush en -y islandora_paged_content 
 drush en -y islandora_book
+drush en -y islandora_transcript
 drush en -y islandora_book_batch  
 drush en -y islandora_xacml_api
 drush en -y islandora_xacml_editor
