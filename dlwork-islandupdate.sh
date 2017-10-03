@@ -106,6 +106,9 @@ mv ./pdf.js ./pdfjs
 rm -R jstree
 git clone https://github.com/vakata/jstree.git
 
+# JAIL library
+rm -R JAIL
+git clone https://github.com/sebarmeli/JAIL.git
 
 
 echo "***** updating modules *****"
