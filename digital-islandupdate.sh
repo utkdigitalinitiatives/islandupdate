@@ -143,6 +143,18 @@ git clone git://github.com/Islandora/objective_forms
 rm -R islandora_xml_forms
 git clone git://github.com/Islandora/islandora_xml_forms
 
+#- incorporate utk_isl_xml_forms
+#- utk_isl_xml_forms are UTK-specific XML Forms, post-processing transforms, and testing data
+if [ -d "utk_isl_xml_forms" ]; then
+	rm -R utk_isl_xml_forms
+	git clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms
+else
+	git clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms
+fi
+#- move UTK-specific post-processing transforms
+#- this list could grow!
+cp utk_isl_xml_forms/post_processing_transforms/roth_post_process.xsl islandora_xml_forms/builder/self_transforms/
+
 #- add the MODS v3.5 mods_to_dc stylesheet
 mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/mods_to_dc.xsl.3.4
 cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/
