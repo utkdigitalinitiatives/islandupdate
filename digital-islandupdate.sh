@@ -383,9 +383,9 @@ drush en -y islandora_usage_stats
 echo "** updating XML Forms tables **"
 if [ -d "$UPDATE_EXEC_DIR/form_tables" ]; then
 	echo "Loading xml_forms.sql"
-	drush -v sql-cli < "$UPDATE_EXEC_DIR"/form_tables/xml_forms.sql
+	runuser -l islandora -c 'drush -v sql-cli --root=$DRUPAL_HOME < "$UPDATE_EXEC_DIR"/form_tables/xml_forms.sql'
 	echo "Loading xml_form associations"
-	drush -v sql-cli < "$UPDATE_EXEC_DIR"/form_tables/xml_form_builder_form_associations.sql
+	runuser -l islandora -c 'drush -v sql-cli --root=$DRUPAL_HOME < "$UPDATE_EXEC_DIR"/form_tables/xml_form_builder_form_associations.sql'
 	echo "Clearing the drush cache"
 	drush cc all
 fi
