@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -x
+#!/usr/bin/env bash
 
 # this script is for the 1st server to be updated to head
 # that update is tested before updating the other servers
@@ -142,6 +142,18 @@ git clone git://github.com/Islandora/objective_forms
 #- islandora_xml_forms
 rm -R islandora_xml_forms
 git clone git://github.com/Islandora/islandora_xml_forms
+
+#- incorporate utk_isl_xml_forms
+#- utk_isl_xml_forms are UTK-specific XML Forms, post-processing transforms, and testing data
+if [ -d "$UPDATE_EXEC_DIR/utk_isl_xml_forms" ]; then
+	rm -R $UPDATE_EXEC_DIR/utk_isl_xml_forms
+	git -C $UPDATE_EXEC_DIR clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms utk_isl_xml_forms
+else
+	git -C $UPDATE_EXEC_DIR clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms utk_isl_xml_forms
+fi
+#- move UTK-specific post-processing transforms
+#- this list could grow!
+cp $UPDATE_EXEC_DIR/utk_isl_xml_forms/post_processing_transforms/roth_post_process.xsl islandora_xml_forms/builder/self_transforms/
 
 #- add the MODS v3.5 mods_to_dc stylesheet
 mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/mods_to_dc.xsl.3.4
@@ -367,6 +379,16 @@ drush en -y islandora_datastream_exporter
 drush en -y islandora_datastream_replace
 drush en -y islandora_bagit
 drush en -y islandora_usage_stats
+
+echo "** updating XML Forms tables **"
+if [ -d "$UPDATE_EXEC_DIR/form_tables" ]; then
+	echo "Loading xml_forms.sql"
+	runuser -l islandora -c 'drush -v sql-cli --root=$DRUPAL_HOME < "$UPDATE_EXEC_DIR"/form_tables/xml_forms.sql'
+	echo "Loading xml_form associations"
+	runuser -l islandora -c 'drush -v sql-cli --root=$DRUPAL_HOME < "$UPDATE_EXEC_DIR"/form_tables/xml_form_builder_form_associations.sql'
+	echo "Clearing the drush cache"
+	drush cc all
+fi
 
 cd $DRUPAL_HOME
 # unset maintenance mode to unlock drupal
