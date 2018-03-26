@@ -242,6 +242,7 @@
 	<xsl:template match="mods:temporal[@point != 'start' and @point != 'end']">
 		<xsl:value-of select="."/>
 	</xsl:template>
+	
 	<xsl:template match="mods:genre">
 		<xsl:choose>
 			<xsl:when test="@authority = 'dct'">
@@ -259,44 +260,62 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+	
+	<xsl:template match="mods:mods[not(mods:genre)]">
+		<xsl:choose>
+		<xsl:when test="mods:typeOfResource">
+			<xsl:apply-templates select="mods:typeOfResource"/>
+		</xsl:when>	
+		<xsl:otherwise>
+			<dc:type>
+				Image
+			</dc:type>
+		</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
 	<xsl:template match="mods:typeOfResource">
-		<xsl:if test="@collection = 'yes'">
-			<dc:type>Collection</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software' and ../mods:genre = 'database'">
-			<dc:type>Dataset</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software' and ../mods:genre = 'online system or service'">
-			<dc:type>Service</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software'">
-			<dc:type>Software</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'cartographic material'">
-			<dc:type>Image</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'multimedia'">
-			<dc:type>InteractiveResource</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'moving image'">
-			<dc:type>MovingImage</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'three dimensional object'">
-			<dc:type>PhysicalObject</dc:type>
-		</xsl:if>
-		<xsl:if test="starts-with(., 'sound recording')">
-			<dc:type>Sound</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'still image'">
-			<dc:type>StillImage</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'text'">
-			<dc:type>Text</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'notated music'">
-			<dc:type>Text</dc:type>
-		</xsl:if>
+		<xsl:choose>
+			<xsl:when test="@collection = 'yes'">
+				<dc:type>Collection</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software' and ../mods:genre = 'database'">
+				<dc:type>Dataset</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software' and ../mods:genre = 'online system or service'">
+				<dc:type>Service</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software'">
+				<dc:type>Software</dc:type>
+			</xsl:when>
+			<xsl:when test="starts-with(., 'cartographic')">
+				<dc:type>Image</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'multimedia'">
+				<dc:type>InteractiveResource</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'moving image'">
+				<dc:type>MovingImage</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'three dimensional object'">
+				<dc:type>PhysicalObject</dc:type>
+			</xsl:when>
+			<xsl:when test="starts-with(., 'sound recording')">
+				<dc:type>Sound</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'still image'">
+				<dc:type>StillImage</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'text'">
+				<dc:type>Text</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'notated music'">
+				<dc:type>Text</dc:type>
+			</xsl:when>
+			<xsl:otherwise>
+				<dc:type>Image</dc:type>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="mods:physicalDescription">
