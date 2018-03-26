@@ -249,11 +249,13 @@
 					<xsl:value-of select="."/>
 				</dc:type>
 			</xsl:when>
+			<xsl:when test="../mods:typeOfResource">
+					<xsl:apply-templates select="mods:typeOfResource"/>
+			</xsl:when>	
 			<xsl:otherwise>
 				<dc:type>
-					<xsl:value-of select="."/>
+					Image
 				</dc:type>
-				<xsl:apply-templates select="mods:typeOfResource"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
