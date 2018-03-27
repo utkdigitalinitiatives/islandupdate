@@ -73,6 +73,14 @@
 				xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 				xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
 				<xsl:apply-templates/>
+				<xsl:choose>
+					<xsl:when test="not(mods:genre) and mods:typeOfResource">
+						<xsl:apply-templates select="mods:typeOfResource"/>
+					</xsl:when>
+					<xsl:when test="not(mods:genre) and not(mods:typeOfResource)">
+						<dc:type>Image</dc:type>
+					</xsl:when>
+				</xsl:choose>
 			</oai_dc:dc>
 		</xsl:for-each>
 	</xsl:template>
