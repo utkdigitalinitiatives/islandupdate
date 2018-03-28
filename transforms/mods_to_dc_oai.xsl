@@ -74,9 +74,7 @@
 				xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
 				<xsl:apply-templates/>
 				<xsl:choose>
-					<xsl:when test="not(mods:genre) and mods:typeOfResource">
-						<xsl:apply-templates select="mods:typeOfResource"/>
-					</xsl:when>
+					<xsl:when test="not(mods:genre) and mods:typeOfResource"/>
 					<xsl:when test="not(mods:genre) and not(mods:typeOfResource)">
 						<dc:type>Image</dc:type>
 					</xsl:when>
@@ -251,7 +249,7 @@
 		<xsl:value-of select="."/>
 	</xsl:template>
 	
-	<xsl:template match="mods:genre">
+	<xsl:template match="mods:genre[1]">
 		<xsl:choose>
 			<xsl:when test="@authority = 'dct'">
 				<dc:type>
@@ -269,7 +267,7 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<xsl:template match="mods:typeOfResource">
+	<xsl:template match="mods:typeOfResource[1]">
 		<xsl:choose>
 			<xsl:when test="@collection = 'yes'">
 				<dc:type>Collection</dc:type>
