@@ -268,19 +268,6 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
-	<xsl:template match="mods:mods[not(mods:genre)]">
-		<xsl:choose>
-		<xsl:when test="mods:typeOfResource">
-			<xsl:apply-templates select="mods:typeOfResource"/>
-		</xsl:when>	
-		<xsl:otherwise>
-			<dc:type>
-				Image
-			</dc:type>
-		</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
 
 	<xsl:template match="mods:typeOfResource">
 		<xsl:choose>
