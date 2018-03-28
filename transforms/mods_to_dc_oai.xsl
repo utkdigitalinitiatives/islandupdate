@@ -267,7 +267,7 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<xsl:template match="mods:typeOfResource[1]">
+		<xsl:template match="mods:typeOfResource[1][not(following-sibling::mods:genre[@authority='dct'] or preceding-sibling::mods:genre[@authority='dct'])]">
 		<xsl:choose>
 			<xsl:when test="@collection = 'yes'">
 				<dc:type>Collection</dc:type>
