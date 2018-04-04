@@ -73,6 +73,12 @@
 				xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 				xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
 				<xsl:apply-templates/>
+				<xsl:choose>
+					<xsl:when test="not(mods:genre) and mods:typeOfResource"/>
+					<xsl:when test="not(mods:genre) and not(mods:typeOfResource)">
+						<dc:type>Image</dc:type>
+					</xsl:when>
+				</xsl:choose>
 			</oai_dc:dc>
 		</xsl:for-each>
 	</xsl:template>
@@ -242,59 +248,67 @@
 	<xsl:template match="mods:temporal[@point != 'start' and @point != 'end']">
 		<xsl:value-of select="."/>
 	</xsl:template>
-	<xsl:template match="mods:genre">
+	
+	<xsl:template match="mods:genre[1]">
 		<xsl:choose>
 			<xsl:when test="@authority = 'dct'">
 				<dc:type>
 					<xsl:value-of select="."/>
 				</dc:type>
 			</xsl:when>
+			<xsl:when test="../mods:typeOfResource">
+					<xsl:apply-templates select="mods:typeOfResource"/>
+			</xsl:when>	
 			<xsl:otherwise>
 				<dc:type>
-					<xsl:value-of select="."/>
+					Image
 				</dc:type>
-				<xsl:apply-templates select="mods:typeOfResource"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
-	<xsl:template match="mods:typeOfResource">
-		<xsl:if test="@collection = 'yes'">
-			<dc:type>Collection</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software' and ../mods:genre = 'database'">
-			<dc:type>Dataset</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software' and ../mods:genre = 'online system or service'">
-			<dc:type>Service</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'software'">
-			<dc:type>Software</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'cartographic material'">
-			<dc:type>Image</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'multimedia'">
-			<dc:type>InteractiveResource</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'moving image'">
-			<dc:type>MovingImage</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'three dimensional object'">
-			<dc:type>PhysicalObject</dc:type>
-		</xsl:if>
-		<xsl:if test="starts-with(., 'sound recording')">
-			<dc:type>Sound</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'still image'">
-			<dc:type>StillImage</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'text'">
-			<dc:type>Text</dc:type>
-		</xsl:if>
-		<xsl:if test=". = 'notated music'">
-			<dc:type>Text</dc:type>
-		</xsl:if>
+		<xsl:template match="mods:typeOfResource[1][not(following-sibling::mods:genre[@authority='dct'] or preceding-sibling::mods:genre[@authority='dct'])]">
+		<xsl:choose>
+			<xsl:when test="@collection = 'yes'">
+				<dc:type>Collection</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software' and ../mods:genre = 'database'">
+				<dc:type>Dataset</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software' and ../mods:genre = 'online system or service'">
+				<dc:type>Service</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'software'">
+				<dc:type>Software</dc:type>
+			</xsl:when>
+			<xsl:when test="starts-with(., 'cartographic')">
+				<dc:type>Image</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'multimedia'">
+				<dc:type>InteractiveResource</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'moving image'">
+				<dc:type>MovingImage</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'three dimensional object'">
+				<dc:type>PhysicalObject</dc:type>
+			</xsl:when>
+			<xsl:when test="starts-with(., 'sound recording')">
+				<dc:type>Sound</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'still image'">
+				<dc:type>StillImage</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'text'">
+				<dc:type>Text</dc:type>
+			</xsl:when>
+			<xsl:when test=". = 'notated music'">
+				<dc:type>Text</dc:type>
+			</xsl:when>
+			<xsl:otherwise>
+				<dc:type>Image</dc:type>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="mods:physicalDescription">
