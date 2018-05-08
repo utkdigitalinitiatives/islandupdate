@@ -41,7 +41,7 @@ drush dis -y islandora_premis
 #drush dis -y islandora_checksum_checker
 drush dis -y islandora_checksum
 drush dis -y islandora_bookmark
-drush dis -y islandora_jwplayer
+#drush dis -y islandora_jwplayer
 drush dis -y islandora_videojs
 drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper_batch
@@ -264,9 +264,9 @@ git clone git://github.com/Islandora/islandora_book_batch
 rm -R islandora_bookmark
 git clone git://github.com/Islandora/islandora_bookmark
 
-#- islandora_jwplayer
-rm -R islandora_jwplayer
-git clone git://github.com/Islandora/islandora_jwplayer
+##- islandora_jwplayer
+#rm -R islandora_jwplayer
+#git clone git://github.com/Islandora/islandora_jwplayer
 
 #- islandora_pdfjs
 rm -R islandora_pdfjs
@@ -360,7 +360,7 @@ drush en -y islandora_solr_metadata
 drush en -y islandora_bookmark
 drush en -y islandora_audio
 drush en -y islandora_video
-drush en -y islandora_jwplayer
+#drush en -y islandora_jwplayer
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
