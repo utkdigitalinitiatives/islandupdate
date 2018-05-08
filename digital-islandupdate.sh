@@ -303,9 +303,9 @@ git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 rm -R islandora_newspaper_batch
 git clone git://github.com/Islandora/islandora_newspaper_batch
 
-#- discoverygarden islandora collection search
+#- our version of labs version of islandora collection search
 rm -R islandora_collection_search
-git clone git://github.com/discoverygarden/islandora_collection_search
+git clone git://github.com/utkdigitalinitiatives/islandora_collection_search
 
 #- discoverygarden islandora paged tei seadragon
 rm -R islandora_paged_tei_seadragon
@@ -319,13 +319,13 @@ git clone git://github.com/discoverygarden/islandora_rest
 rm -R islandora_solution_pack_manuscript
 git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
-#- discoverygarden islandora_binary_object
+#- islandora-labs islandora_binary_object
 rm -R islandora_binary_object
-git clone git://github.com/discoverygarden/islandora_binary_object
+git clone git://github.com/Islandora-Labs/islandora_binary_object
 
-#- Islandora bagit
+#- our version of Islandora bagit
 rm -R islandora_bagit
-git clone git://github.com/Islandora/islandora_bagit
+git clone git://github.com/utkdigitalinitiatives/islandora_bagit
 
 #- Islandora usage stats
 rm -R islandora_usage_stats
