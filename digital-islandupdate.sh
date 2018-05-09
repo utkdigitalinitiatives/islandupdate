@@ -126,7 +126,7 @@ git clone https://github.com/utkdigitalinitiatives/islandora_datastream_replace
 rm -R islandora
 git clone git://github.com/Islandora/islandora
 
-#- islandora_solution_pack_collection
+#- our version of islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
 git clone git://github.com/utkdigitalinitiatives/islandora_solution_pack_collection
 
@@ -303,9 +303,9 @@ git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 rm -R islandora_newspaper_batch
 git clone git://github.com/Islandora/islandora_newspaper_batch
 
-#- our version of labs version of islandora collection search
+#- discoverygarden version of islandora collection search
 rm -R islandora_collection_search
-git clone git://github.com/utkdigitalinitiatives/islandora_collection_search
+git clone git://github.com/discoverygarden/islandora_collection_search
 
 #- discoverygarden islandora paged tei seadragon
 rm -R islandora_paged_tei_seadragon
