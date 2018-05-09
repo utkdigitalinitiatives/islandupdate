@@ -41,7 +41,7 @@ drush dis -y islandora_premis
 #drush dis -y islandora_checksum_checker
 drush dis -y islandora_checksum
 drush dis -y islandora_bookmark
-drush dis -y islandora_jwplayer
+#drush dis -y islandora_jwplayer
 drush dis -y islandora_videojs
 drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper_batch
@@ -104,6 +104,9 @@ mv ./pdf.js ./pdfjs
 rm -R jstree
 git clone https://github.com/vakata/jstree.git
 
+# JAIL library
+rm -R JAIL
+git clone https://github.com/sebarmeli/JAIL.git
 
 
 echo "***** updating modules *****"
@@ -123,7 +126,7 @@ git clone https://github.com/utkdigitalinitiatives/islandora_datastream_replace
 rm -R islandora
 git clone git://github.com/Islandora/islandora
 
-#- islandora_solution_pack_collection
+#- our version of islandora_solution_pack_collection
 rm -R islandora_solution_pack_collection
 git clone git://github.com/utkdigitalinitiatives/islandora_solution_pack_collection
 
@@ -264,9 +267,9 @@ git clone git://github.com/Islandora/islandora_book_batch
 rm -R islandora_bookmark
 git clone git://github.com/Islandora/islandora_bookmark
 
-#- islandora_jwplayer
-rm -R islandora_jwplayer
-git clone git://github.com/Islandora/islandora_jwplayer
+##- islandora_jwplayer
+#rm -R islandora_jwplayer
+#git clone git://github.com/Islandora/islandora_jwplayer
 
 #- islandora_pdfjs
 rm -R islandora_pdfjs
@@ -300,7 +303,7 @@ git clone git://github.com/Islandora/islandora_solution_pack_newspaper
 rm -R islandora_newspaper_batch
 git clone git://github.com/Islandora/islandora_newspaper_batch
 
-#- discoverygarden islandora collection search
+#- discoverygarden version of islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
 
@@ -316,13 +319,13 @@ git clone git://github.com/discoverygarden/islandora_rest
 rm -R islandora_solution_pack_manuscript
 git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
 
-#- discoverygarden islandora_binary_object
+#- islandora-labs islandora_binary_object
 rm -R islandora_binary_object
-git clone git://github.com/discoverygarden/islandora_binary_object
+git clone git://github.com/Islandora-Labs/islandora_binary_object
 
-#- Islandora bagit
+#- our version of Islandora bagit
 rm -R islandora_bagit
-git clone git://github.com/Islandora/islandora_bagit
+git clone git://github.com/utkdigitalinitiatives/islandora_bagit
 
 #- Islandora usage stats
 rm -R islandora_usage_stats
@@ -360,7 +363,7 @@ drush en -y islandora_solr_metadata
 drush en -y islandora_bookmark
 drush en -y islandora_audio
 drush en -y islandora_video
-drush en -y islandora_jwplayer
+#drush en -y islandora_jwplayer
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
