@@ -2,17 +2,26 @@
 
 ## Introduction
 
-Local bash script to update islandora installation to HEAD. Actually there are three scripts which are customized for different servers.
+  There are many layers to updating Islandora.
+  
+* The backend components like Fedora and Solr are not updated frequently and this script does not cover those processes.
+* There are tools like Tesseract ocr and FITS which could be updated manually but may also come in through an operating
+ system package, for instance, we use Red Hat Linux and it has Tesseract as one of the standard packages so it gets updated automatically, but FITS is installed manually so it gets updated when we notice that there is a new version
+* The standard drupal core and modules are updated through "drush pm-update". These are the modules registered in the drupal home as offical modules, like colorbox or imagemagick.
+* The custom modules for Islandora that are usually kept on github are what this script covers, plus some of the libraries required by those modules.
+
+Local bash script to update islandora installation to HEAD. There are two scripts
+ which are customized for different servers.
 
 * does not update everything in drupal, just islandora related modules
 * does not update all libraries, just ones that are updated more frequently
-* some modules are commented out
+* some modules are commented out ( like ones that we are testing )
 * does not update any other applications or dependencies, solr, tesseract, etc.
 
 _This may not work correctly with any other system until it is edited._
 
 ## Requirements
-1. Linux command line
+1. Linux command line bash capabilities
 2. Git
 3. an installation of Islandora
 4. a /home/islandora directory
@@ -21,20 +30,23 @@ _This may not work correctly with any other system until it is edited._
 ## Usage
 
 1. Clone the repo to your server.
+ - cd /home/islandora
+ - git clone https://github.com/utkdigitalinitiatives/islandupdate
 2. Edit it to fit your local systems and requirements.
 3. Run the script as root (sudo -i)
 
 ## Process:
 
-1. make dated backups of current modules and libraries
-2. put drupal into maintenence mode
+1. makes dated backups of current modules and libraries
+2. puts drupal into maintenence mode
 3. disables modules
 4. updates libraries
 5. with each module:
   - erase old module
   - download new from git
-6. enable modules
-7. cancel the drupal maintenence mode
+6. bring in our custom solr configs and xml transforms
+7. enable modules
+8. cancel the drupal maintenence mode
 
 Note:  the backups are written to a specific directory
  and the erasing of modules does not check to see if it is backed-up, so
