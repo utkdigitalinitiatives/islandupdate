@@ -149,7 +149,7 @@ cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/isl
 mv $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/mods_to_dc.xsl.3.4
 cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/
 
-
+cd $DRUPAL_HOME
 echo "*** re-enabling modules"
 #    Enable modules
 
