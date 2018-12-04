@@ -129,26 +129,26 @@ else
 fi
 #- move UTK-specific post-processing transforms
 #- this list could grow!
-cp $UPDATE_EXEC_DIR/utk_isl_xml_forms/post_processing_transforms/roth_post_process.xsl islandora_xml_forms/builder/self_transforms/
+cp $UPDATE_EXEC_DIR/utk_isl_xml_forms/post_process_transforms/roth_post_process.xsl $DRUPAL_HOME/sites/all/modules/islandora_xml_forms/builder/self_transforms/
 
 #- add the MODS v3.5 mods_to_dc stylesheet
-mv islandora_xml_forms/builder/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/mods_to_dc.xsl.3.4
-cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_xml_forms/builder/transforms/
+mv $DRUPAL_HOME/sites/all/modules/islandora_xml_forms/builder/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_xml_forms/builder/transforms/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_xml_forms/builder/transforms/
 
 
 #- add the MODS v3.5 mods_to_dc_oai stylesheet
-mv islandora_oai/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/mods_to_dc_oai.xsl.3.4
-cp $UPDATE_EXEC_DIR/transforms/mods_to_dc_oai.xsl islandora_oai/transforms/
+mv $DRUPAL_HOME/sites/all/modules/islandora_oai/transforms/mods_to_dc_oai.xsl $DRUPAL_HOME/sites/all/modules/islandora_oai/transforms/mods_to_dc_oai.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc_oai.xsl $DRUPAL_HOME/sites/all/modules/islandora_oai/transforms/
 
 
 #- add the MODS v3.5 mods_to_dc stylesheet
-mv islandora_batch/transforms/mods_to_dc.xsl islandora_batch/transforms/mods_to_dc.xsl.3.4
-cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_batch/transforms/
+mv $DRUPAL_HOME/sites/all/modules/islandora_batch/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_batch/transforms/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_batch/transforms/
 
 
 #- add the MODS v3.5 mods_to_dc stylesheet
-mv islandora_importer/xsl/mods_to_dc.xsl islandora_importer/xsl/mods_to_dc.xsl.3.4
-cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl islandora_importer/xsl/
+mv $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/mods_to_dc.xsl.3.4
+cp $UPDATE_EXEC_DIR/transforms/mods_to_dc.xsl $DRUPAL_HOME/sites/all/modules/islandora_importer/xsl/
 
 
 echo "*** re-enabling modules"

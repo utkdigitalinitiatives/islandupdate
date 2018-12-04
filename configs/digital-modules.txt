@@ -10,6 +10,7 @@ Islandora/islandora_checksum_checker
 discoverygarden/islandora_collection_search
 Islandora-Labs/islandora_datastream_exporter
 utkdigitalinitiatives/islandora_datastream_replace
+MarcusBarnes/islandora_compound_batch
 Islandora/islandora_fits
 Islandora/islandora_importer
 Islandora/islandora_internet_archive_bookreader
@@ -18,11 +19,11 @@ Islandora/islandora_oai
 Islandora/islandora_ocr
 Islandora/islandora_openseadragon
 Islandora/islandora_paged_content
-Islandora/islandora_paged_tei_seadragon
+discoverygarden/islandora_paged_tei_seadragon
 Islandora/islandora_pdfjs
 Islandora/islandora_premis
 discoverygarden/islandora_rest
-Islandora/islandora_social_metatags
+Islandora-Labs/islandora_social_metatags
 Islandora/islandora_solr_metadata
 Islandora/islandora_solr_search
 Islandora/islandora_solr_views
