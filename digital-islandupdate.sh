@@ -116,6 +116,7 @@ while read -r LINE; do
   rm -R "$MOD"
   git clone https://github.com/"$LINE"
 done < "$UPDATE_EXEC_DIR"/configs/digital-modules.txt
+
 cd $UPDATE_EXEC_DIR
 
 
@@ -123,10 +124,8 @@ cd $UPDATE_EXEC_DIR
 #- utk_isl_xml_forms are UTK-specific XML Forms, post-processing transforms, and testing data
 if [ -d "$UPDATE_EXEC_DIR/utk_isl_xml_forms" ]; then
 	rm -R $UPDATE_EXEC_DIR/utk_isl_xml_forms
-	git -C $UPDATE_EXEC_DIR clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms utk_isl_xml_forms
-else
-	git -C $UPDATE_EXEC_DIR clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms utk_isl_xml_forms
 fi
+	git clone git://github.com/utkdigitalinitiatives/utk_isl_xml_forms utk_isl_xml_forms
 #- move UTK-specific post-processing transforms
 #- this list could grow!
 cp $UPDATE_EXEC_DIR/utk_isl_xml_forms/post_process_transforms/roth_post_process.xsl $DRUPAL_HOME/sites/all/modules/islandora_xml_forms/builder/self_transforms/
