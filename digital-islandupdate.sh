@@ -86,6 +86,11 @@ cd sites/all/libraries/
 rm -R tuque
 git clone https://github.com/Islandora/tuque.git
 
+# internet archive bookreader
+rm -R bookreader
+git clone https://github.com/Islandora/internet_archive_bookreader.git
+mv ./internet_archive_boookreader ./bookreader
+
 #  videojs library
 rm -R video-js
 git clone https://github.com/videojs/video.js.git
