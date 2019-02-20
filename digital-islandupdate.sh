@@ -46,7 +46,6 @@ drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper_batch
 drush dis -y islandora_newspaper
 drush dis -y islandora_binary_object
-drush dis -y islandora_rest
 drush dis -y islandora_audio
 drush dis -y islandora_video
 drush dis -y islandora_pdf
@@ -192,7 +191,6 @@ drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker
 drush en -y islandora_newspaper
 drush en -y islandora_collection_search
-drush en -y islandora_rest
 drush en -y islandora_binary_object
 drush en -y islandora_newspaper_batch
 #drush en -y islandora_batch_derivative_trigger
