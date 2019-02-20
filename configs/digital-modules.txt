@@ -19,7 +19,6 @@ Islandora/islandora_oai
 Islandora/islandora_ocr
 Islandora/islandora_openseadragon
 Islandora/islandora_paged_content
-discoverygarden/islandora_paged_tei_seadragon
 Islandora/islandora_pdfjs
 Islandora/islandora_premis
 discoverygarden/islandora_rest
