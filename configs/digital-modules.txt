@@ -22,6 +22,7 @@ Islandora/islandora_paged_content
 Islandora/islandora_pdfjs
 Islandora/islandora_premis
 Islandora-Labs/islandora_social_metatags
+Islandora-Labs/islandora_solution_pack_oralhistories
 Islandora/islandora_solr_metadata
 Islandora/islandora_solr_search
 Islandora/islandora_solr_views
