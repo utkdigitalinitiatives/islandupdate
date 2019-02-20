@@ -21,7 +21,6 @@ Islandora/islandora_openseadragon
 Islandora/islandora_paged_content
 Islandora/islandora_pdfjs
 Islandora/islandora_premis
-discoverygarden/islandora_rest
 Islandora-Labs/islandora_social_metatags
 Islandora/islandora_solr_metadata
 Islandora/islandora_solr_search
