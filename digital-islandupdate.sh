@@ -55,6 +55,7 @@ drush dis -y islandora_book_batch
 drush dis -y islandora_batch
 drush dis -y islandora_book
 drush dis -y islandora_transcript
+drush dis -y islandora_oral_histories
 drush dis -y islandora_internet_archive_bookreader
 drush dis -y islandora_paged_content
 drush dis -y islandora_compound_object
@@ -173,6 +174,7 @@ drush en -y zip_importer
 drush en -y islandora_internet_archive_bookreader
 drush en -y islandora_paged_content
 drush en -y islandora_book
+drush en -y islandora_oral_histories
 drush en -y islandora_transcript
 drush en -y islandora_book_batch
 drush en -y islandora_xacml_api
