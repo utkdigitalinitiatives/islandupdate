@@ -37,6 +37,7 @@ drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
 drush dis -y islandora_solr_config
+drush dis -y islandora_social_metatags
 drush dis -y islandora_premis
 #drush dis -y islandora_checksum_checker
 drush dis -y islandora_checksum
@@ -189,6 +190,7 @@ drush en -y islandora_video
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
+drush en -y islandora_social_metatags
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker
 drush en -y islandora_newspaper
