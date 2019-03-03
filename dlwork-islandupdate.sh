@@ -297,23 +297,6 @@ git clone git://github.com/Islandora/islandora_newspaper_batch
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
 
-#- discoverygarden islandora paged tei seadragon
-rm -R islandora_paged_tei_seadragon
-git clone git://github.com/discoverygarden/islandora_paged_tei_seadragon
-
-#- discoverygarden islandora rest
-rm -R islandora_rest
-git clone git://github.com/discoverygarden/islandora_rest
-
-#- discoverygarden islandora_solution_pack_manuscript
-rm -R islandora_solution_pack_manuscript
-git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
-
-#- drexel ead solution pack
-rm -R islandora_solution_pack_ead
-git clone git://github.com/DrexelUniversityLibraries/islandora_solution_pack_ead
-
-
 #- Islandora-Labs islandora_binary_object
 rm -R islandora_binary_object
 git clone git://github.com/Islandora-Labs/islandora_binary_object
@@ -359,21 +342,15 @@ drush en -y islandora_solr
 drush en -y islandora_solr_views
 drush en -y islandora_solr_metadata 
 drush en -y islandora_bookmark
-drush en -y islandora_jwplayer
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
-#drush en -y islandora_pathauto  
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker  
 drush en -y islandora_newspaper
 drush en -y islandora_collection_search
-drush en -y islandora_rest
 drush en -y islandora_audio
 drush en -y islandora_video
-drush en -y islandora_paged_tei_seadragon
-drush en -y islandora_manuscript
-drush en -y islandora_ead
 drush en -y islandora_binary_object
 drush en -y islandora_scg
 drush en -y islandora_usage_stats
