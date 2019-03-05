@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
+# !/usr/bin/env bash
 
-# this script is for the 1st server to be updated to head
-# that update is tested before updating the other servers
+#  ***  NEW! *** the digital script should be used for dlwork and porter ****
+#    NOT this script!  This is just for legacy info and is temporary
+#
+# this script is for the 1st server to be updated to head.
+# That update is tested before updating the other server(s).
 #
 UPDATE_EXEC_DIR=`pwd`
 TODAY=$(date +"%y-%m-%d")
@@ -39,7 +42,7 @@ drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
 drush dis -y islandora_solr_config
 drush dis -y islandora_premis
-#drush dis -y islandora_checksum_checker
+drush dis -y islandora_checksum_checker
 drush dis -y islandora_checksum
 drush dis -y islandora_bookmark
 drush dis -y islandora_videojs
@@ -59,7 +62,7 @@ drush dis -y islandora_transcript
 drush dis -y islandora_internet_archive_bookreader
 drush dis -y islandora_paged_content
 drush dis -y islandora_compound_object
-drush dis -y islandora_large_image 
+drush dis -y islandora_large_image
 drush dis -y islandora_ocr
 drush dis -y islandora_xacml_editor
 drush dis -y islandora_xacml_api
@@ -330,23 +333,23 @@ drush en -y islandora_large_image
 drush en -y islandora_pdf
 drush en -y islandora_batch
 drush en -y islandora_zip_importer
-drush en -y islandora_internet_archive_bookreader 
-drush en -y islandora_paged_content 
+drush en -y islandora_internet_archive_bookreader
+drush en -y islandora_paged_content
 drush en -y islandora_book
 drush en -y islandora_transcript
-drush en -y islandora_book_batch  
+drush en -y islandora_book_batch
 drush en -y islandora_xacml_api
 drush en -y islandora_xacml_editor
-drush en -y islandora_compound_object 
+drush en -y islandora_compound_object
 drush en -y islandora_solr
 drush en -y islandora_solr_views
-drush en -y islandora_solr_metadata 
+drush en -y islandora_solr_metadata
 drush en -y islandora_bookmark
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
 drush en -y islandora_checksum
-#drush en -y islandora_checksum_checker  
+#drush en -y islandora_checksum_checker
 drush en -y islandora_newspaper
 drush en -y islandora_collection_search
 drush en -y islandora_audio
@@ -375,5 +378,3 @@ cd $DRUPAL_HOME
 
 echo "enable drupal..."
 drush vset --exact maintenance_mode 0
-
-
