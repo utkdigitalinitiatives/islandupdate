@@ -84,6 +84,10 @@ echo "** updating libraries"
 #update libraries
 cd sites/all/libraries/
 
+# internet archive bookreader
+rm -R bookreader
+git clone https://github.com/Islandora/internet_archive_bookreader.git
+mv ./internet_archive_bookreader ./bookreader
 
 #- tuque
 
