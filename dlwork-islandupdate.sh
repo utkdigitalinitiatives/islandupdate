@@ -30,6 +30,8 @@ cp -a sites/all/libraries/*  $LIBBAK/
 echo  "** beginning disabling modules **"
 
 #    Disable modules
+# dis solr_views first and enable it last because of delay
+drush dis -y islandora_solr_views
 drush dis -y islandora_batch_derivative_trigger
 drush dis -y islandora_datastream_exporter
 drush dis -y islandora_datastream_replace
@@ -37,7 +39,6 @@ drush dis -y islandora_bagit
 drush dis -y islandora_usage_stats
 drush dis -y islandora_scg
 drush dis -y islandora_collection_search
-drush dis -y islandora_solr_views
 drush dis -y islandora_solr_metadata
 drush dis -y islandora_solr
 drush dis -y islandora_solr_config
@@ -49,10 +50,6 @@ drush dis -y islandora_videojs
 drush dis -y islandora_pdfjs
 drush dis -y islandora_newspaper
 drush dis -y islandora_binary_object
-drush dis -y islandora_manuscript
-drush dis -y islandora_ead
-drush dis -y islandora_paged_tei_seadragon
-drush dis -y islandora_rest
 drush dis -y islandora_audio
 drush dis -y islandora_video
 drush dis -y islandora_pdf
@@ -272,10 +269,6 @@ git clone git://github.com/Islandora/islandora_book_batch
 rm -R islandora_bookmark
 git clone git://github.com/Islandora/islandora_bookmark
 
-#- islandora_jwplayer
-rm -R islandora_jwplayer
-git clone git://github.com/Islandora/islandora_jwplayer
-
 #- islandora_pdfjs
 rm -R islandora_pdfjs
 git clone git://github.com/Islandora/islandora_pdfjs
@@ -296,10 +289,6 @@ git clone git://github.com/Islandora/islandora_checksum
 rm -R islandora_checksum_checker
 git clone git://github.com/Islandora/islandora_checksum_checker
 
-#- islandora_pathauto
-#rm -R islandora_pathauto
-#git clone git://github.com/Islandora/islandora_pathauto
-
 #- islandora_solution_pack_newspaper
 rm -R islandora_solution_pack_newspaper
 git clone git://github.com/Islandora/islandora_solution_pack_newspaper
@@ -311,22 +300,6 @@ git clone git://github.com/Islandora/islandora_newspaper_batch
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
-
-#- discoverygarden islandora paged tei seadragon
-rm -R islandora_paged_tei_seadragon
-git clone git://github.com/discoverygarden/islandora_paged_tei_seadragon
-
-#- discoverygarden islandora rest
-rm -R islandora_rest
-git clone git://github.com/discoverygarden/islandora_rest
-
-#- discoverygarden islandora_solution_pack_manuscript
-rm -R islandora_solution_pack_manuscript
-git clone git://github.com/discoverygarden/islandora_solution_pack_manuscript
-
-#- drexel ead solution pack
-rm -R islandora_solution_pack_ead
-git clone git://github.com/DrexelUniversityLibraries/islandora_solution_pack_ead
 
 
 #- Islandora-Labs islandora_binary_object
@@ -371,24 +344,17 @@ drush en -y islandora_xacml_api
 drush en -y islandora_xacml_editor
 drush en -y islandora_compound_object
 drush en -y islandora_solr
-drush en -y islandora_solr_views
 drush en -y islandora_solr_metadata
 drush en -y islandora_bookmark
-drush en -y islandora_jwplayer
 drush en -y islandora_videojs
 drush en -y islandora_pdfjs
 drush en -y islandora_premis
-#drush en -y islandora_pathauto
 drush en -y islandora_checksum
 #drush en -y islandora_checksum_checker
 drush en -y islandora_newspaper
 drush en -y islandora_collection_search
-drush en -y islandora_rest
 drush en -y islandora_audio
 drush en -y islandora_video
-drush en -y islandora_paged_tei_seadragon
-drush en -y islandora_manuscript
-drush en -y islandora_ead
 drush en -y islandora_binary_object
 drush en -y islandora_scg
 drush en -y islandora_usage_stats
@@ -397,6 +363,7 @@ drush en -y islandora_batch_derivative_trigger
 drush en -y islandora_datastream_exporter
 drush en -y islandora_datastream_replace
 drush en -y islandora_bagit
+drush en -y islandora_solr_views
 
 echo "** updating XML Forms tables **"
 if [ -d "$UPDATE_EXEC_DIR/form_tables" ]; then
