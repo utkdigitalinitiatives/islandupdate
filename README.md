@@ -4,17 +4,15 @@
 
   There are many layers to updating Islandora.
   
-* The backend components like Fedora and Solr are not updated frequently and this script does not cover those processes.
-* There are tools like Tesseract ocr and FITS which could be updated manually but may also come in through an operating
- system package, for instance, we use Red Hat Linux and it has Tesseract as one of the standard packages so it gets updated automatically, but FITS is installed manually so it gets updated when we notice that there is a new version
 * The standard drupal core and modules are updated through "drush pm-update". These are the modules registered in the drupal home as offical modules, like colorbox or imagemagick.
 * The custom modules for Islandora that are usually kept on github are what this script covers, plus some of the libraries required by those modules.
+* There are tools like Tesseract ocr and FITS which could be updated manually but may also come in through an operating
+ system package, for instance, we use Red Hat Linux and it has Tesseract as one of the standard packages so it gets updated automatically, but FITS is installed manually so it gets updated when we notice that there is a new version
 
 Local bash script to update islandora installation to HEAD. There are two scripts
  which are customized for different servers.
 
 * does not update everything in drupal, just islandora related modules
-* does not update all libraries, just ones that are updated more frequently
 * some modules are commented out ( like ones that we are testing )
 * does not update any other applications or dependencies, solr, tesseract, etc.
 
