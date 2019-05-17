@@ -29,7 +29,7 @@ cp -a sites/all/libraries/*  $LIBBAK/
 
 echo  "** beginning disabling modules **"
 
-#    Disable modules
+#    Disable modulesdrush dis -y islandora_solr_views
 # dis solr_views first and enable it last because of delay
 drush dis -y islandora_solr_views
 drush dis -y islandora_batch_derivative_trigger
@@ -304,7 +304,6 @@ git clone git://github.com/Islandora/islandora_newspaper_batch
 #- discoverygarden islandora collection search
 rm -R islandora_collection_search
 git clone git://github.com/discoverygarden/islandora_collection_search
-
 
 #- Islandora-Labs islandora_binary_object
 rm -R islandora_binary_object
