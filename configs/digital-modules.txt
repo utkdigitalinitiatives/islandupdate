@@ -11,6 +11,7 @@ discoverygarden/islandora_collection_search
 Islandora-Labs/islandora_datastream_exporter
 utkdigitalinitiatives/islandora_datastream_replace
 MarcusBarnes/islandora_compound_batch
+Islandora/islandora_form_fieldpanel
 Islandora/islandora_fits
 Islandora/islandora_importer
 Islandora/islandora_internet_archive_bookreader
