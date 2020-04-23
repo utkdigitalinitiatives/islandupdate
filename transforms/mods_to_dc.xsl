@@ -193,7 +193,7 @@
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="mods:abstract | mods:tableOfContents | mods:note">
+	<xsl:template match='mods:abstract | mods:tableOfContents | mods:note[not(@displayLabel="dpn")]'>
 		<dc:description>
 			<xsl:value-of select="."/>
 		</dc:description>
