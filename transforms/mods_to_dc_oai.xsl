@@ -285,25 +285,25 @@
 				<dc:type>Image</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'multimedia'">
-				<dc:type>InteractiveResource</dc:type>
+				<dc:type>Interactive Resource</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'moving image'">
-				<dc:type>MovingImage</dc:type>
+				<dc:type>Image</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'three dimensional object'">
-				<dc:type>PhysicalObject</dc:type>
+				<dc:type>Physical Object</dc:type>
 			</xsl:when>
 			<xsl:when test="starts-with(., 'sound recording')">
 				<dc:type>Sound</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'still image'">
-				<dc:type>StillImage</dc:type>
+				<dc:type>Image</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'text'">
 				<dc:type>Text</dc:type>
 			</xsl:when>
 			<xsl:when test=". = 'notated music'">
-				<dc:type>Text</dc:type>
+				<dc:type>Image</dc:type>
 			</xsl:when>
 			<xsl:otherwise>
 				<dc:type>Image</dc:type>
