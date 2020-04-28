@@ -261,7 +261,7 @@
 			</xsl:when>	
 			<xsl:otherwise>
 				<dc:type>
-					image
+					Image
 				</dc:type>
 			</xsl:otherwise>
 		</xsl:choose>
